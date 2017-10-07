@@ -14,3 +14,6 @@
 ### Sématerv
 
 ![Az alkalmazáshoz tervezett sémák](images/schema_plan.png)
+
+### Felhasználói szerepkörök
+![Felhasználói szerepkörök](images/image.png)
