@@ -33,6 +33,18 @@ Egy könyvet jellemez a címe, műfaja és megjelenési dátuma. Szerzője több
 ### Szerző
 Szerzőnek rögzítjük a nevét és nemzetiségét, további információk az ún. életrajz mezőben adhatóak meg. Szerzőhöz több könyv kapcsolódik, ez az előző pontban leírt sok-sok kapcsolat.
 
+### Felhasználó
+Az alkalmazás felhasználói 3 kategóriába sorolhatóak, jogosultságaikat [ábra](#felhasználói-szerepkörök) is szemlélteti.
+
+#### Látogató
+Az alkalmazás vendég látogatói a nem regisztrált felhasználók. Ők szabadon böngészhetik és megtekinthetik az oldalon elérhető tartalmat, azonban új tartalmat nem hozhatnak létre.
+
+#### Regisztrált felhasználó
+A regisztrált felhasználók a tartalom megtekintésén felül új tartalom létrehozására is jogosultak, legyen az szerző, könyv felvétele, vagy értékelés írása.
+
+#### Admin
+Az alkalmazás adminisztrátorai rendelkeznek értelemszerűen a legtöbb joggal. A tartalom módosításának és törlésének a joga az, ami megkülönbözteti őket a többi felhasználótól.
+
 ## Sématerv
 ![Az alkalmazáshoz tervezett sémák](images/schema_plan.png)
 
