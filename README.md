@@ -13,13 +13,25 @@
 Az alkalmazásban elérhető tartalom, amit a regisztrált felhasználók hoznak létre, mindenki számára elérhető. Tartalom alatt értjük a szerzőket, a könyveket, és a könyvekhez tartozó értékeléseket. A szerzők és a könyvek kereséssel szűrhetőek. Egy szerzőt kiválasztva látható az adatai, valamint a könyvei. Egy könyvet kiválasztva megjelennek a hozzá kapcsolódó információk, valamint az értékelései.
 
 ### Szerző felvétele
-Új szerzű felvétele a nyilvántartásba, ami a könyvek hozzáadását teszi lehetővé. Ez egy űrlap kitöltésével történik, amiben megadjuk a szerző adatait: neve, nemzetisége, valamint életrajza (itt tetszőleges további információk lehetnek).
+Új szerzű felvétele a nyilvántartásba, ami a könyvek hozzáadását teszi lehetővé a regisztrált felhasználók számára. Ez egy űrlap kitöltésével történik, amiben megadjuk a szerző adatait: neve, nemzetisége, valamint életrajza (itt tetszőleges további információk lehetnek).
 
 ### Könyv felvétele
-Meglévő szerző könyve rögzíthető az alkalmazással, ami könyv adatainak megadásával történik. Egy könyvnek több szerzője is lehet. Könyv adatai: szerző(k), cím, műfaj, megjelenés dátuma.
+Meglévő szerző könyve rögzíthető az alkalmazással regisztrált felhasználók által, ami a könyv adatainak megadásával történik. Egy könyvnek több szerzője is lehet. Könyv adatai: szerző(k), cím, műfaj, megjelenés dátuma.
 
 ### Értékelés írása
-Könyv kiválasztásával az adott könyvről szöveges értékelés írható. A szöveges értékelés egy pontszámmal is kiegészül.
+Könyv kiválasztásával az adott könyvről szöveges értékelés írható. A szöveges értékelés egy pontszámmal is kiegészül. Ez a funkció regisztrált felhasználók számára érhető el.
+
+## Entitások
+> Az alkalmazás entitásai és a köztük lévő kapcsolatok, amelyek a [sématerven](#sématerv) is látszódnak.
+
+### Értékelés
+Egy értékelés egy könyvhöz kapcsolódik, egy könyvhöz azonban több értékelés is tartozhat. Értékelés alatt egy szöveges értékelés és egy pontszámot értünk, emellett rögzítjük az értékelés íróját(regisztrált felhasználó) és dátumát.
+
+### Könyv
+Egy könyvet jellemez a címe, műfaja és megjelenési dátuma. Szerzője több is lehet, és természetesen egy szerzőnek több könyve lehet, tehát köztük sok-sok kapcsolat áll fenn. Ennek megvalósítása kapcsolótáblával történik. Egy könyvhöz tetszőleges számú értékelés tartozhat.
+
+### Szerző
+Szerzőnek rögzítjük a nevét és nemzetiségét, további információk az ún. életrajz mezőben adhatóak meg. Szerzőhöz több könyv kapcsolódik, ez az előző pontban leírt sok-sok kapcsolat.
 
 ## Sématerv
 ![Az alkalmazáshoz tervezett sémák](images/schema_plan.png)
