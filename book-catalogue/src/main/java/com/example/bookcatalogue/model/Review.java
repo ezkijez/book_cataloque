@@ -2,6 +2,7 @@ package com.example.bookcatalogue.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
@@ -12,13 +13,14 @@ import java.sql.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Review {
+@EqualsAndHashCode(callSuper = true)
+public class Review  extends BaseEntity{
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "id", table = "USER")
     private Long user;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "id", table = "BOOK")
     private Long book;
 
@@ -31,7 +33,6 @@ public class Review {
     @Column(nullable = false, unique = false)
     private Date date;
 
-    public Review() {
-    }
+
 }
 

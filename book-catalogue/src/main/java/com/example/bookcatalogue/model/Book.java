@@ -2,6 +2,7 @@ package com.example.bookcatalogue.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
@@ -15,7 +16,8 @@ import java.sql.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Book {
+@EqualsAndHashCode(callSuper = true)
+public class Book  extends BaseEntity{
 
     @Column(nullable = false, unique = false)
     private String title;
