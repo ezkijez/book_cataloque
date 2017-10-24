@@ -15,13 +15,13 @@ import javax.persistence.*;
 @EqualsAndHashCode(callSuper = true)
 public class BookAuthor  extends BaseEntity{
 
-    @Column
-//    @OneToOne
-//    @JoinColumn(name = "id", table="BOOK")
-    private Long Book;
 
-    @Column
-//    @OneToOne
-//    @JoinColumn(name = "id", table="AUTHOR")
-    private Long Author;
+    @OneToOne
+    @JoinColumn(name = "id", table="BOOK")
+    private Book book;
+
+
+    @OneToOne
+    @JoinColumn(name = "id", table="AUTHOR")
+    private Author author;
 }

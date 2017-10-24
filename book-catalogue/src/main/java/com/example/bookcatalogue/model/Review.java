@@ -16,15 +16,15 @@ import java.sql.Date;
 @EqualsAndHashCode(callSuper = true)
 public class Review  extends BaseEntity{
 
-    @Column
-//    @OneToOne
-//    @JoinColumn(name = "id", table = "USER")
-    private Long user;
 
-    @Column
-//    @OneToOne
-//    @JoinColumn(name = "id", table = "BOOK")
-    private Long book;
+    @OneToOne
+    @JoinColumn(name = "id", table = "USER")
+    private User user;
+
+
+    @OneToOne
+    @JoinColumn(name = "id", table = "BOOK")
+    private Book book;
 
     @Column(nullable = false, unique = false)
     private String review;
