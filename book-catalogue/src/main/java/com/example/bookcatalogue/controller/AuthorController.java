@@ -22,8 +22,9 @@ public class AuthorController {
     @Autowired
     private AuthorRepository authorRepository;
 
-    @GetMapping("/addauthor")
-    public String register(Model model) {
+    @Role({User.Role.ADMIN, User.Role.USER})
+    @GetMapping("/add")
+    public String addAuthor(Model model) {
         model.addAttribute("author", new Author());
         return "addauthor";
     }
@@ -38,7 +39,7 @@ public class AuthorController {
     @Role({User.Role.ADMIN, User.Role.USER})
     @GetMapping("/searchauthor/{searchTerm}")
     public ModelAndView searschAuthor(@PathVariable("searchTerm") String author){
-        ModelAndView mav = new ModelAndView("index");
+        ModelAndView mav = new ModelAndView("searchauthor");
         mav.addObject("searchTerm", author);
         ArrayList<Author> authors = new ArrayList<>(authorRepository.findAll());
         ArrayList<Author> result =new ArrayList<Author>();

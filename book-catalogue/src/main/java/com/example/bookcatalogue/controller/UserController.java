@@ -4,13 +4,13 @@ import com.example.bookcatalogue.repository.UserRepository;
 import com.example.bookcatalogue.model.User;
 import com.example.bookcatalogue.service.Session;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 
 import java.util.Optional;
+
+import static com.example.bookcatalogue.model.User.Role.USER;
 
 
 @RestController
@@ -43,4 +43,18 @@ import java.util.Optional;
                 return session.getUser().toString();
             }
         }
+
+    @GetMapping("/register")
+    public String register(Model model) {
+        model.addAttribute("user", new User());
+        return "register";
+    }
+
+    @PostMapping("/register")
+    public String register(@ModelAttribute User user) {
+        user.setRole(USER);
+        userRepository.save(user);
+
+        return "redirect";
+    }
     }
