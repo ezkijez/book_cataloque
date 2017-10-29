@@ -50,3 +50,13 @@ Az alkalmazás adminisztrátorai rendelkeznek értelemszerűen a legtöbb joggal
 
 ## Felhasználói szerepkörök
 ![Felhasználói szerepkörök](images/user_roles.png)
+
+##Backend réteg
+
+###Alkalmazott könyvtárstruktúra
+![Alkalmazott könyvtárstruktúra](images/directory_structure)
+*annotaiton: Saját készítésű annotációk.
+*controller: Az adott entitásokhoz tartozó controller osztályok.
+*model: Az adatbázisban található entitások.
+*repository: Az adatbázisokat kezelő osztályok.
+*service:A controllerek üzleti logikáját tartalmazó osztályok.
