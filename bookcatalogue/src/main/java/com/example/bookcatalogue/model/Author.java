@@ -7,7 +7,10 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "AUTHOR")
@@ -17,13 +20,16 @@ import javax.persistence.Table;
 @EqualsAndHashCode(callSuper = true)
 public class Author extends BaseEntity {
 
-    @Column(nullable = false, unique = false)
+    @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false, unique = false)
+    @Column(nullable = false)
     private String nationality;
 
-    @Column(nullable = false, unique = false)
+    @Column(nullable = false)
     private String bio;
+
+    @ManyToMany(mappedBy = "authors")
+    private Set<Book> books = new HashSet<>();
 
 }

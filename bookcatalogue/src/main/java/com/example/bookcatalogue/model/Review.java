@@ -16,25 +16,22 @@ import java.sql.Date;
 @EqualsAndHashCode(callSuper = true)
 public class Review  extends BaseEntity{
 
-
     @OneToOne
-    @JoinColumn(name = "id", table = "USER")
+    @JoinColumn(name = "user")
     private User user;
 
-
     @OneToOne
-    @JoinColumn(name = "id", table = "BOOK")
+    @JoinColumn(name = "book")
     private Book book;
 
-    @Column(nullable = false, unique = false)
+    @Column(nullable = false)
     private String review;
 
-    @Column(nullable = false, unique = false)
+    @Column(nullable = false)
     private int rate;
 
-    @Column(nullable = false, unique = false)
+    @Column(nullable = false)
     private Date date;
-
 
 }
 
