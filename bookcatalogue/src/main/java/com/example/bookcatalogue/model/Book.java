@@ -1,12 +1,13 @@
 package com.example.bookcatalogue.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -25,9 +26,10 @@ public class Book  extends BaseEntity{
     @Column(nullable = false)
     private String genre;
 
-    @Column(nullable = false)
-    private Date publicationDate;
+    @Column(nullable = true)
+    private LocalDate publicationDate;
 
+    @JsonIgnore
     @ManyToMany
     @JoinTable(name = "book_author")
     private Set<Author> authors = new HashSet<>();

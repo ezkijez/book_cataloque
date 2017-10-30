@@ -1,5 +1,6 @@
 package com.example.bookcatalogue.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -20,7 +21,7 @@ import java.util.Set;
 @EqualsAndHashCode(callSuper = true)
 public class Author extends BaseEntity {
 
-    @Column(nullable = false)
+    @Column(name = "author_name", nullable = false)
     private String name;
 
     @Column(nullable = false)
@@ -29,6 +30,7 @@ public class Author extends BaseEntity {
     @Column(nullable = false)
     private String bio;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "authors")
     private Set<Book> books = new HashSet<>();
 

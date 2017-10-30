@@ -6,10 +6,10 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.time.LocalDate;
 
 @Entity
-@Table(name = "AUTHOR")
+@Table(name = "REVIEW")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -31,7 +31,7 @@ public class Review  extends BaseEntity{
     private int rate;
 
     @Column(nullable = false)
-    private Date date;
+    private LocalDate date;
 
 }
 
