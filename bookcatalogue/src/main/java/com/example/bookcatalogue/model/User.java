@@ -7,6 +7,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -31,8 +32,18 @@ public class User extends BaseEntity {
     private Role role;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "user")
-    private Set<Review> reviews;
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    private Set<Review> reviews = new HashSet<>();
+
+    @Override
+    public String toString() {
+        return "User{" +
+            "username='" + username + '\'' +
+            ", email='" + email + '\'' +
+            ", password='" + password + '\'' +
+            ", role=" + role +
+            '}';
+    }
 
     public enum Role {
         GUEST, USER, ADMIN

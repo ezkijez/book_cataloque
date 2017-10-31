@@ -1,21 +1,15 @@
 package com.example.bookcatalogue.repository;
 
 import com.example.bookcatalogue.model.Book;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
+import java.time.LocalDate;
+import java.util.Set;
 
 @Repository
-public interface BookRepository extends CrudRepository<Book, String> {
-
-    List<Book> findByTitleAndGenreAndPublicationDate(String title, String genre, Date date);
-
-    List<Book> findByTitle(String title);
-
-    List<Book> findByGenre(String genre);
-
-    List<Book> findByPublicationDate(Date date);
+public interface BookRepository extends JpaRepository<Book, Long> {
+    Set<Book> findByTitleContainingIgnoreCase(String title);
+    Set<Book> findByGenreContainingIgnoreCase(String genre);
+    Set<Book> findByTitleContainingIgnoreCaseOrGenreContainingIgnoreCase(String title, String genre);
 }
