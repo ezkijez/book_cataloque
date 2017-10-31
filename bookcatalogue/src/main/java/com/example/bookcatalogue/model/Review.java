@@ -16,11 +16,11 @@ import java.time.LocalDate;
 @EqualsAndHashCode(callSuper = true)
 public class Review  extends BaseEntity{
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "user")
     private User user;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "book")
     private Book book;
 

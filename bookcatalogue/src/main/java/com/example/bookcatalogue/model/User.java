@@ -1,11 +1,13 @@
 package com.example.bookcatalogue.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "USER")
@@ -27,6 +29,10 @@ public class User extends BaseEntity {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, unique = true)
     private Role role;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "user")
+    private Set<Review> reviews;
 
     public enum Role {
         GUEST, USER, ADMIN

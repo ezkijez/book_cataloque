@@ -26,12 +26,16 @@ public class Book  extends BaseEntity{
     @Column(nullable = false)
     private String genre;
 
-    @Column(nullable = true)
+    @Column(nullable = false)
     private LocalDate publicationDate;
 
     @JsonIgnore
     @ManyToMany
     @JoinTable(name = "book_author")
     private Set<Author> authors = new HashSet<>();
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "book")
+    private Set<Review> reviews = new HashSet<>();
 
 }
