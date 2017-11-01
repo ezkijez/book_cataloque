@@ -7,12 +7,20 @@ import com.example.bookcatalogue.service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/review")
 public class ReviewController {
 
     @Autowired
     private ReviewService reviewService;
+
+
+    @GetMapping("/{bookId}")
+    public List<Review> getReviewsOfBook(@PathVariable Long bookId) {
+        return reviewService.getReviewsOfBook(bookId);
+    }
 
     @Role({User.Role.ADMIN, User.Role.USER})
     @PostMapping("/addReview")

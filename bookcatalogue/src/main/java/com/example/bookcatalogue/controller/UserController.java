@@ -1,56 +1,39 @@
 package com.example.bookcatalogue.controller;
 
+import com.example.bookcatalogue.exception.UserNotValidException;
 import com.example.bookcatalogue.model.User;
-import com.example.bookcatalogue.repository.UserRepository;
-import com.example.bookcatalogue.service.Session;
+import com.example.bookcatalogue.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Optional;
-
-import static com.example.bookcatalogue.model.User.Role.USER;
 
 @RestController
 @RequestMapping("/auth")
 public class UserController {
 
     @Autowired
-    Session session;
-
-    @Autowired
-    UserRepository userRepository;
-
-    @RequestMapping("/login")
-    public String login(@RequestBody User user) {
-        Optional<User> dbUser = userRepository.findByEmailAndPassword(user.getEmail(), user.getPassword());
-        if (dbUser.isPresent()) {
-            session.setUser(dbUser.get());
-            return "logged in";
-        } else {
-            return "invalid username and/or password";
-        }
-    }
+    private UserService userService;
 
     @GetMapping("/isLoggedIn")
-    public String isLoggedIn() {
-        if (session.getUser() == null) {
-            return "not logged in";
+    public String user() {
+        if (userService.isLoggedIn()) {
+            return userService.getUser().toString();
         } else {
-            return session.getUser().toString();
+            return "not logged in";
         }
     }
 
-    @GetMapping("/register")
-    public String register(Model model) {
-        model.addAttribute("user", new User());
-        return "register";
+    @PostMapping("/login")
+    public User login(@RequestBody User user) {
+        try {
+            return userService.login(user);
+        } catch (UserNotValidException e) {
+            return null;
+        }
     }
 
     @PostMapping("/register")
-    public String register(@ModelAttribute User user) {
-        user.setRole(USER);
-        userRepository.save(user);
-        return "redirect";
+    public User register(@RequestBody User user) {
+        return userService.register(user);
     }
+
 }
