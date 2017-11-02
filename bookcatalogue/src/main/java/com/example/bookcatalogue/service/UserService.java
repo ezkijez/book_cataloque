@@ -4,6 +4,7 @@ import com.example.bookcatalogue.exception.UserNotValidException;
 import com.example.bookcatalogue.model.User;
 import com.example.bookcatalogue.repository.UserRepository;
 import lombok.Data;
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.annotation.SessionScope;
@@ -29,12 +30,14 @@ public class UserService {
 
     public User register(User user) {
         user.setRole(USER);
+        user.setPassword(BCrypt.hashpw(user.getPassword(), BCrypt.gensalt()));
         this.user = userRepository.save(user);
         return user;
     }
 
-    public boolean isValid(User user) {
-        return userRepository.findByUsernameAndPassword(user.getUsername(), user.getPassword()).isPresent();
+    private boolean isValid(User user) {
+        User realUser = userRepository.findByUsername(user.getUsername()).get();
+        return BCrypt.checkpw(user.getPassword(), realUser.getPassword());
     }
 
     public boolean isLoggedIn() {
