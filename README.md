@@ -54,9 +54,10 @@ Az alkalmazás adminisztrátorai rendelkeznek értelemszerűen a legtöbb joggal
 ##Backend réteg
 
 ###Alkalmazott könyvtárstruktúra
-![Alkalmazott könyvtárstruktúra](images/directory_structure)
-*annotaiton: Saját készítésű annotációk.
-*controller: Az adott entitásokhoz tartozó controller osztályok.
-*model: Az adatbázisban található entitások.
-*repository: Az adatbázisokat kezelő osztályok.
-*service:A controllerek üzleti logikáját tartalmazó osztályok.
+![Alkalmazott könyvtárstruktúra](images/directory_structure.png)
+
+- annotaiton: Saját készítésű annotációk.
+- controller: Az adott entitásokhoz tartozó controller osztályok.
+- model: Az adatbázisban található entitások.
+- repository: Az adatbázisokat kezelő osztályok.
+- service:A controllerek üzleti logikáját tartalmazó osztályok.
