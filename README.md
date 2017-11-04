@@ -61,3 +61,5 @@ Az alkalmazás adminisztrátorai rendelkeznek értelemszerűen a legtöbb joggal
 - model: Az adatbázisban található entitások.
 - repository: Az adatbázisokat kezelő osztályok.
 - service:A controllerek üzleti logikáját tartalmazó osztályok.
+- dto : Search engine
+- exception: Kivételek
