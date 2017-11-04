@@ -8,6 +8,7 @@ import com.example.bookcatalogue.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Set;
 
 @RestController
@@ -27,7 +28,7 @@ public class BookController {
         return bookService.getAllBooks();
     }
 
-    @GetMapping("/searchBook")
+    @PostMapping("/searchBook")
     public Set<Book> searchBook(@RequestBody BookSearch bookSearch) {
         return bookService.searchBook(bookSearch);
     }
@@ -45,7 +46,7 @@ public class BookController {
     }
 
     @Role({User.Role.ADMIN})
-    @DeleteMapping("/deleteAuthor/{id}")
+    @DeleteMapping("/deleteBook/{id}")
     public void deleteBook(@PathVariable Long id) {
         bookService.deleteBook(id);
     }

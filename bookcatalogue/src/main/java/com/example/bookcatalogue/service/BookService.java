@@ -60,10 +60,10 @@ public class BookService {
     }
 
     private boolean filterBook(Book book, BookSearch criteria) {
-        if (criteria.getGenre() != null && !criteria.getGenre().equals(book.getGenre())) {
+        if (criteria.getGenre() != null && !book.getGenre().toLowerCase().contains(criteria.getGenre().toLowerCase())) {
             return false;
         }
-        if (criteria.getTitle() != null && !criteria.getTitle().equals(book.getTitle())) {
+        if (criteria.getTitle() != null && !book.getTitle().toLowerCase().contains(criteria.getTitle().toLowerCase())) {
             return false;
         }
         return true;
