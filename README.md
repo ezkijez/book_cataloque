@@ -56,23 +56,22 @@ Az alkalmazás adminisztrátorai rendelkeznek értelemszerűen a legtöbb joggal
 ### Alkalmazott könyvtárstruktúra
 ![Alkalmazott könyvtárstruktúra](images/directory_structure.png)
 
-- annotaiton: Saját készítésű annotációk.
-- controller: Az adott entitásokhoz tartozó controller osztályok.
-- model: Az adatbázisban található entitások.
+- annotation: Saját készítésű annotációk.
+- controller: Az alkalmazáshoz tartozó REST controllerek.
+- model: Az alkalmazás entitásai.
 - repository: Az adatbázisokat kezelő osztályok.
-- service:A controllerek üzleti logikáját tartalmazó osztályok.
-- dto : Search engine
-- exception: Kivételek
+- service: Az alkalmazás üzleti logikáját tartalmazó osztályok.
+- dto: Kliens és szerver közötti kommunikációt segítő osztályok. (Data Transfer Objects)
+- exception: Kivételek.
 
 ### Végpontok
-
 - book/
-	- /{id}: adott könyv adatai
-  - /books: könyvek listája
-  - /searchBook: könyv keresés
-  - /addBook: könyv készítése
-  - /updateBook: könyv modosítása
-  - /deleteBook/{id}: könyv törlése
+    - /{id}: adott könyv adatai
+    - /books: könyvek listája
+    - /searchBook: könyv keresése
+    - /addBook: könyv készítése
+    - /updateBook: könyv modosítása
+    - /deleteBook/{id}: könyv törlése
 - author/
 	- /{id}: adott író adatai
 	- /authors: írók listája
