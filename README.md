@@ -51,9 +51,9 @@ Az alkalmazás adminisztrátorai rendelkeznek értelemszerűen a legtöbb joggal
 ## Felhasználói szerepkörök
 ![Felhasználói szerepkörök](images/user_roles.png)
 
-##Backend réteg
+## Backend réteg
 
-###Alkalmazott könyvtárstruktúra
+### Alkalmazott könyvtárstruktúra
 ![Alkalmazott könyvtárstruktúra](images/directory_structure.png)
 
 - annotaiton: Saját készítésű annotációk.
