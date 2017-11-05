@@ -63,3 +63,28 @@ Az alkalmazás adminisztrátorai rendelkeznek értelemszerűen a legtöbb joggal
 - service:A controllerek üzleti logikáját tartalmazó osztályok.
 - dto : Search engine
 - exception: Kivételek
+
+### Végpontok
+
+- book/
+	- /{id}: adott könyv adatai
+  - /books: könyvek listája
+  - /searchBook: könyv keresés
+  - /addBook: könyv készítése
+  - /updateBook: könyv modosítása
+  - /deleteBook/{id}: könyv törlése
+- author/
+	- /{id}: adott író adatai
+	- /authors: írók listája
+	- /searchAuthor/{searchTerm}: író keresése
+	- /addAuthor: író készítése
+	- /updateAuthor: író modosítása
+	- /deleteAuthor/{id}: író törlése
+- review/
+	- /{bookId}: adott könyv értékelései
+	- /addReview: értékelés készítése
+	- /deleteReview/{id}: értékelés törlése
+- auth/
+	- /isLoggedIn: felhasználó adatai ha be van jelentkezve
+	- /login: bejelentkező oldal
+	- /register: regisztrációs oldal
