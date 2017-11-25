@@ -21,7 +21,7 @@ export class AuthenticationService {
     return this.http.post(environment.api + environment.routes.login, user, httpOptions)
       .pipe(
         tap((resUser: User) => {
-          console.log(resUser);
+          this.user = resUser;
           this.loggedIn = true;
         })
       );
