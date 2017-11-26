@@ -8,6 +8,14 @@ export class Review {
     private _rate:number;
     private _date:Date;
 
+    public constructor(user:User,book:Book,review:string,rate:number,date:Date){
+        this._user=user;
+        this._book=book;
+        this._review=review;
+        this._rate=rate;
+        this._date=date;
+    }    
+
     public get user():User{
         return this._user;
     }
