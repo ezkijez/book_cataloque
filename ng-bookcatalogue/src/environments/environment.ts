@@ -7,6 +7,7 @@ export const environment = {
   production: false,
   api: 'http://localhost:4200/api',
   routes: {
-    login: '/auth/login'
+    login: '/auth/login',
+    logout: '/auth/logout'
   }
 };

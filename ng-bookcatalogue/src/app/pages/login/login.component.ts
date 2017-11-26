@@ -7,8 +7,7 @@ import { User } from '../../classes/user';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
-  providers: [AuthenticationService]
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup = new FormGroup({
@@ -24,7 +23,7 @@ export class LoginComponent implements OnInit {
   submit() {
     this.authService.login(new User(this.username.value, this.password.value))
       .subscribe(
-        res => console.log(res),
+        res => this.router.navigate(['']),
         err => console.log(err)
       );
   }
