@@ -28,6 +28,10 @@ public class UserService {
         throw new UserNotValidException();
     }
 
+    public void logout() {
+        user = null;
+    }
+
     public User register(User user) {
         user.setRole(USER);
         user.setPassword(BCrypt.hashpw(user.getPassword(), BCrypt.gensalt()));
