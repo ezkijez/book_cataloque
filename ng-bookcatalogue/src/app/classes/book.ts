@@ -12,7 +12,7 @@ export class Book {
                        genre: string,
                        pdate: Date,
                        authors: Set<Author>,
-                       reviews: Set<Review>){
+                       reviews: Set<Review>) {
         this._title = title;
         this._genre = genre;
         this._publicationDate = pdate;
@@ -28,17 +28,17 @@ export class Book {
         return this._genre;
     }
 
-    public get publicationDate(): Date{
+    public get publicationDate(): Date {
         return this._publicationDate;
     }
 
-    public get authors(): Set<Author>{
+    public get authors(): Set<Author> {
         const authors = new Set<Author>();
         this._authors.forEach(a => authors.add(a));
         return authors;
     }
 
-    public get reviews(): Set<Review>{
+    public get reviews(): Set<Review> {
         const reviews = new Set<Review>();
         this._reviews.forEach(r => reviews.add(r));
         return reviews;

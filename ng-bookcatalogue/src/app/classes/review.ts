@@ -20,23 +20,23 @@ export class Review {
         this._date = date;
     }
 
-    public get user(): User{
+    public get user(): User {
         return this._user;
     }
 
-    public get book(): Book{
+    public get book(): Book {
         return this._book;
     }
 
-    public get review(): string{
+    public get review(): string {
         return this._review;
     }
 
-    public get rate(): number{
+    public get rate(): number {
         return this._rate;
     }
 
-    public get date(): Date{
+    public get date(): Date {
         return this._date;
     }
 }
