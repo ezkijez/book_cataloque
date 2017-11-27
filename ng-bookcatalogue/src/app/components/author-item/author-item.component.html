@@ -1,0 +1,6 @@
+<p *ngIf="!author">Dynamic author info comes here.</p>
+<div *ngIf="author">
+  <p class="title">{{ author.name }}</p>
+  <p>{{ author.nationality }}</p>
+  <p>{{ author.bio }}</p>
+</div>

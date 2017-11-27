@@ -1,4 +1,4 @@
-<nav class="navbar is-warning is-fixed-top">
+<nav class="navbar is-warning">
   <div class="navbar-brand">
     <a routerLink="/" class="navbar-item has-text-weight-semibold is-size-5">
       Book Catalogue
@@ -13,7 +13,7 @@
 
   <div class="navbar-menu" id="menu" #menu (click)="disableBurger()">
     <div class="navbar-start">
-      <a class="navbar-item">egy</a>
+      <a routerLink="/authors" class="navbar-item">Authors</a>
       <a class="navbar-item">kettő</a>
       <a class="navbar-item">harom</a>
     </div>
