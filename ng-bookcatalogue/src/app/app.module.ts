@@ -13,6 +13,9 @@ import { HomeComponent } from './pages/home/home.component';
 import { AuthorListViewComponent } from './pages/authors/author-list-view/author-list-view.component';
 import { AuthorService } from './services/author.service';
 import { AuthorItemComponent } from './components/author-item/author-item.component';
+import { BookItemComponent } from './components/book-item/book-item.component';
+import { BookListViewComponent } from './pages/books/book-list-view/book-list-view.component';
+import { BookService } from './services/book.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,9 @@ import { AuthorItemComponent } from './components/author-item/author-item.compon
     NavbarComponent,
     HomeComponent,
     AuthorListViewComponent,
-    AuthorItemComponent
+    AuthorItemComponent,
+    BookItemComponent,
+    BookListViewComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +36,7 @@ import { AuthorItemComponent } from './components/author-item/author-item.compon
     FormsModule,
     BrowserAnimationsModule
   ],
-  providers: [AuthenticationService, AuthorService],
+  providers: [AuthenticationService, AuthorService, BookService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

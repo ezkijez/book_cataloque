@@ -26,7 +26,7 @@ export class AuthorListViewComponent implements OnInit {
   ngOnInit() {
     this.authorService.getAllAuthors().subscribe(
       (authors) => {
-        this.authors = authors;
+        this.authors = <Author[]>authors;
         this.filteredAuthors = this.authors;
         this.refresh();
       });

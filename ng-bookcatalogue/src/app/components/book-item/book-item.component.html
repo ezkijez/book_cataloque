@@ -1,0 +1,7 @@
+<p *ngIf="!book">Dynamic book info comes here.</p>
+<div *ngIf="book">
+  <p class="title">{{ book.title }}</p>
+  <p>{{ book.genre }}</p>
+  <p>{{ book.pdate }}</p>
+
+</div>

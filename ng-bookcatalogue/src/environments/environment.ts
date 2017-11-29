@@ -9,6 +9,7 @@ export const environment = {
   routes: {
     login: '/auth/login',
     logout: '/auth/logout',
-    getAuthors: '/author/authors'
+    getAuthors: '/author/authors',
+    getBooks: '/book/books',
   }
 };
