@@ -5,10 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -18,7 +15,14 @@ import java.util.Set;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Author extends BaseEntity {
+public class Author {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Version
+    private int version;
 
     @Column(name = "author_name", nullable = false)
     private String name;

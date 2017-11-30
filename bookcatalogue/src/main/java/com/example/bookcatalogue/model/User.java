@@ -17,8 +17,14 @@ import java.util.Set;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode(callSuper = true)
-public class User extends BaseEntity {
+public class User {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Version
+    private int version;
 
     @Column(nullable = false, unique = true)
     private String username;
@@ -31,7 +37,7 @@ public class User extends BaseEntity {
     private String password;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private Role role;
 
     @JsonIgnore

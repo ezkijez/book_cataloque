@@ -13,7 +13,14 @@ import java.util.Objects;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Review  extends BaseEntity{
+public class Review {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Version
+    private int version;
 
     @ManyToOne
     @JoinColumn(name = "user")

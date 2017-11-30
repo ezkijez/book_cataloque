@@ -17,7 +17,14 @@ import java.util.Set;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Book  extends BaseEntity{
+public class Book {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Version
+    private int version;
 
     @Column(nullable = false)
     private String title;
