@@ -20,7 +20,7 @@
         <div class="tile is-child box notification is-primary">
           <div class="field is-grouped">
             <p class="control is-expanded">
-              <input [(ngModel)]="searchTerm" (keyup)="searchbook(searchTerm)" class="input" type="text" placeholder="Search">
+              <input [(ngModel)]="searchTerm" (keyup)="searchBook(searchTerm)" class="input" type="text" placeholder="Search">
             </p>
             <p class="control">
               <a class="button is-primary is-inverted" (click)="resetSearch()">
@@ -33,7 +33,7 @@
         </div>
 
         <div class="tile is-child box notification is-warning">
-          <button (click)="checkRandombook()" class="button is-medium is-warning is-inverted">I'm lucky</button>
+          <button (click)="checkRandomBook()" class="button is-medium is-warning is-inverted">I'm lucky</button>
           <p class="subtitle">Time to learn something new</p>
         </div>
 
@@ -46,7 +46,7 @@
               <tbody>
               <tr *ngFor="let book of currentPage">
                 <td class="has-text-centered">
-                  <a (click)="selectbook(book)">
+                  <a (click)="selectBook(book)">
                     <div class="title is-5">
                       {{ book.title }}
                     </div>
@@ -83,7 +83,7 @@
       </div>
       <div class="tile is-parent is-4 is-vertical">
         <div class="tile is-child box notification is-warning">
-            <app-book-item [book]="currentbook"></app-book-item>
+          <app-book-item [book]="currentBook"></app-book-item>
         </div>
       </div>
     </div>

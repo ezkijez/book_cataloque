@@ -12,18 +12,17 @@ export class BookListViewComponent implements OnInit {
 
   private books: Book[];
   private filteredBooks: Book[];
-  private currentBook: Book;
+  private _currentBook: Book;
 
-  private currentPage: Book[];
+  private _currentPage: Book[];
   private _page = 1;
-  private pageSize = 2;
+  private pageSize = 5;
   private _pageCount: number;
-  private pageNumbers: number[];
+  private _pageNumbers: number[];
 
   constructor(private bookService: BookService, private router: Router) { }
     searchTerm: string;
-  
-  
+
     ngOnInit() {
       this.bookService.getAllBooks().subscribe(
         (books) => {
@@ -32,84 +31,103 @@ export class BookListViewComponent implements OnInit {
           this.refresh();
         });
     }
-  
+
     selectBook(a) {
-      this.currentBook = a;
+      this._currentBook = a;
     }
-  
+
     searchBook(searchTerm) {
       this.filteredBooks = this.books.filter(
         book => book.title.toUpperCase().includes(searchTerm.toUpperCase())
       );
       this.refresh();
     }
-  
+
     resetSearch() {
       this.searchTerm = '';
       this.searchBook(this.searchTerm);
     }
-  
+
     checkRandomBook() {
       const randomId = Math.floor(Math.random() * this.books.length);
-      this.currentBook = this.books[randomId];
+      this._currentBook = this.books[randomId];
     }
-  
+
     nextPage() {
-      if (this._page < this._pageCount) {
-        this._page++;
+      if (this.page < this.pageCount) {
+        this.page++;
       }
       this.refresh();
     }
-  
+
     previousPage() {
-      if (this._page > 1) {
-        this._page--;
+      if (this.page > 1) {
+        this.page--;
       }
       this.refresh();
     }
-  
+
     goToPage(page: number) {
-      if (page > 0 && page <= this._pageCount) {
-        this._page = page;
+      if (page > 0 && page <= this.pageCount) {
+        this.page = page;
       }
       this.refresh();
     }
-  
+
     refresh() {
-      this._pageCount = Math.ceil(this.filteredBooks.length / this.pageSize);
+      this.pageCount = Math.ceil(this.filteredBooks.length / this.pageSize);
       this.refreshPage();
       this.refreshPageNumbers();
     }
-  
+
     refreshPageNumbers() {
-      this.pageNumbers = [];
+      this._pageNumbers = [];
       if (this.pageCount < 5) {
         for (let i = 2; i < this.pageCount; i++) {
-          this.pageNumbers.push(i);
+          this._pageNumbers.push(i);
         }
       } else {
         if (this.page < 3) { // at the beginning
-          this.pageNumbers.push(2, 3);
+          this._pageNumbers.push(2, 3);
         } else if (this.page > this.pageCount - 2) { // at the end
-          this.pageNumbers.push(this.pageCount - 2, this.pageCount - 1);
+          this._pageNumbers.push(this.pageCount - 2, this.pageCount - 1);
         } else { // somewhere in the middle
-          this.pageNumbers.push(this.page - 1, this.page, this.page + 1);
+          this._pageNumbers.push(this.page - 1, this.page, this.page + 1);
         }
       }
     }
-  
-    refreshPage() {
-      const begin = (this._page - 1) * this.pageSize;
-      const end = this._page * this.pageSize;
-      this.currentPage = this.filteredBooks.slice(begin, end);
-    }
-  
-    get page(): number {
-      return this._page;
-    }
-  
-    get pageCount(): number {
-      return this._pageCount;
-    }
+
+  refreshPage() {
+    const begin = (this.page - 1) * this.pageSize;
+    const end = this.page * this.pageSize;
+    this._currentPage = this.filteredBooks.slice(begin, end);
   }
-  
+
+  get pageCount(): number {
+    return this._pageCount;
+  }
+
+  set pageCount(value: number) {
+    this._pageCount = value;
+  }
+
+  get page(): number {
+    return this._page;
+  }
+
+  set page(value: number) {
+    this._page = value;
+  }
+
+  get currentBook(): Book {
+    return this._currentBook;
+  }
+
+  get pageNumbers(): number[] {
+    return this._pageNumbers;
+  }
+
+  get currentPage(): Book[] {
+    return this._currentPage;
+  }
+}

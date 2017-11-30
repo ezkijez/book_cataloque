@@ -13,13 +13,13 @@ export class AuthorListViewComponent implements OnInit {
 
   private authors: Author[];
   private filteredAuthors: Author[];
-  private currentAuthor: Author;
+  private _currentAuthor: Author;
 
-  private currentPage: Author[];
+  private _currentPage: Author[];
   private _page = 1;
-  private pageSize = 2;
+  private pageSize = 5;
   private _pageCount: number;
-  private pageNumbers: number[];
+  private _pageNumbers: number[];
 
   constructor(private authorService: AuthorService, private router: Router) { }
 
@@ -33,7 +33,7 @@ export class AuthorListViewComponent implements OnInit {
   }
 
   selectAuthor(a) {
-    this.currentAuthor = a;
+    this._currentAuthor = a;
   }
 
   searchAuthor(searchTerm) {
@@ -54,28 +54,28 @@ export class AuthorListViewComponent implements OnInit {
   }
 
   nextPage() {
-    if (this._page < this._pageCount) {
-      this._page++;
+    if (this.page < this.pageCount) {
+      this.page++;
     }
     this.refresh();
   }
 
   previousPage() {
-    if (this._page > 1) {
-      this._page--;
+    if (this.page > 1) {
+      this.page--;
     }
     this.refresh();
   }
 
   goToPage(page: number) {
-    if (page > 0 && page <= this._pageCount) {
-      this._page = page;
+    if (page > 0 && page <= this.pageCount) {
+      this.page = page;
     }
     this.refresh();
   }
 
   refresh() {
-    this._pageCount = Math.ceil(this.filteredAuthors.length / this.pageSize);
+    this.pageCount = Math.ceil(this.filteredAuthors.length / this.pageSize);
     this.refreshPage();
     this.refreshPageNumbers();
   }
@@ -98,16 +98,48 @@ export class AuthorListViewComponent implements OnInit {
   }
 
   refreshPage() {
-    const begin = (this._page - 1) * this.pageSize;
-    const end = this._page * this.pageSize;
+    const begin = (this.page - 1) * this.pageSize;
+    const end = this.page * this.pageSize;
     this.currentPage = this.filteredAuthors.slice(begin, end);
+  }
+
+  get pageCount(): number {
+    return this._pageCount;
+  }
+
+  set pageCount(value: number) {
+    this._pageCount = value;
+  }
+
+  get pageNumbers(): number[] {
+    return this._pageNumbers;
+  }
+
+  set pageNumbers(value: number[]) {
+    this._pageNumbers = value;
+  }
+
+  get currentAuthor(): Author {
+    return this._currentAuthor;
+  }
+
+  set currentAuthor(value: Author) {
+    this._currentAuthor = value;
+  }
+
+  get currentPage(): Author[] {
+    return this._currentPage;
+  }
+
+  set currentPage(value: Author[]) {
+    this._currentPage = value;
   }
 
   get page(): number {
     return this._page;
   }
 
-  get pageCount(): number {
-    return this._pageCount;
+  set page(value: number) {
+    this._page = value;
   }
 }
