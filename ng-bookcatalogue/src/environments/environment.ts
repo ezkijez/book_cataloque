@@ -8,6 +8,7 @@ export const environment = {
   api: 'http://localhost:4200/api',
   routes: {
     login: '/auth/login',
+    register: '/auth/register',
     logout: '/auth/logout',
     getAuthors: '/author/authors',
     getBooks: '/book/books',

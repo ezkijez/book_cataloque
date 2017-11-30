@@ -17,6 +17,10 @@ export class AuthenticationService {
     this.user = new User();
   }
 
+  register(user: User) {
+    return this.http.post(environment.api + environment.routes.register, user);
+  }
+
   login(user: User) {
     return this.http.post(environment.api + environment.routes.login, user, httpOptions)
       .pipe(
@@ -30,7 +34,7 @@ export class AuthenticationService {
   logout() {
     return this.http.get(environment.api + environment.routes.logout, { responseType: 'text' })
       .pipe(
-        map(res => {
+        map(() => {
           this.user = null;
           this.loggedIn = false;
         })

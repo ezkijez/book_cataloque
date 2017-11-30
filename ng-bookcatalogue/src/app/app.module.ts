@@ -16,17 +16,19 @@ import { AuthorItemComponent } from './components/author-item/author-item.compon
 import { BookItemComponent } from './components/book-item/book-item.component';
 import { BookListViewComponent } from './pages/books/book-list-view/book-list-view.component';
 import { BookService } from './services/book.service';
+import { RegistrationComponent } from './pages/registration/registration.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    RegistrationComponent,
     NavbarComponent,
     HomeComponent,
     AuthorListViewComponent,
     AuthorItemComponent,
     BookItemComponent,
-    BookListViewComponent
+    BookListViewComponent,
   ],
   imports: [
     BrowserModule,
