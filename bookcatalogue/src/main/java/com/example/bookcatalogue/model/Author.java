@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.sql.Clob;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -30,7 +31,7 @@ public class Author {
     @Column(nullable = false)
     private String nationality;
 
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "text")
     private String bio;
 
     @JsonIgnore
