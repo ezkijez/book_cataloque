@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Author } from '../../../classes/author';
 import { AuthorService } from '../../../services/author.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import 'rxjs/add/operator/switchMap';
 
 @Component({
   selector: 'app-author-list-view',
@@ -21,19 +22,32 @@ export class AuthorListViewComponent implements OnInit {
   private _pageCount: number;
   private _pageNumbers: number[];
 
-  constructor(private authorService: AuthorService, private router: Router) { }
+  constructor(private authorService: AuthorService,
+              private router: Router,
+              private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.authorService.getAllAuthors().subscribe(
       (authors) => {
-        this.authors = <Author[]>authors;
+        this.authors = <Author[]> authors;
         this.filteredAuthors = this.authors;
         this.refresh();
+        this.route.queryParams.subscribe(() => {
+          this.setAuthorFromQuery();
+        });
       });
   }
 
+  setAuthorFromQuery() {
+    const id = +this.route.snapshot.queryParams['id'];
+    if (id) {
+      this.currentAuthor = this.authors.find(author => author.id === id);
+    }
+  }
+
   selectAuthor(a) {
-    this._currentAuthor = a;
+    this.currentAuthor = a;
+    this.router.navigate(['/authors'], { queryParams: { id: a.id } });
   }
 
   searchAuthor(searchTerm) {

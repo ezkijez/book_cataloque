@@ -1,6 +1,9 @@
-<p *ngIf="!author">Dynamic author info comes here.</p>
+<div *ngIf="!author">
+  <h2 class="title">No author selected.</h2>
+  <h4 class="subtitle">Select an author to see more details!</h4>
+</div>
 <div *ngIf="author">
-  <p class="title">{{ author.name }}</p>
-  <p>{{ author.nationality }}</p>
+  <p class="title is-2">{{ author.name }}</p>
+  <p class="subtitle is-6">{{ author.nationality }}</p>
   <p>{{ author.bio }}</p>
 </div>
