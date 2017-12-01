@@ -35,7 +35,6 @@ public class Book {
     @Column(nullable = false)
     private LocalDate publicationDate;
 
-    @JsonIgnore
     @ManyToMany
     @JoinTable(name = "book_author")
     private Set<Author> authors = new HashSet<>();

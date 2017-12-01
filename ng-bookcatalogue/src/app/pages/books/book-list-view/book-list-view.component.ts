@@ -21,7 +21,7 @@ export class BookListViewComponent implements OnInit {
   private _pageNumbers: number[];
 
   constructor(private bookService: BookService, private router: Router) { }
-    searchTerm: string;
+  searchTerm: string;
 
     ngOnInit() {
       this.bookService.getAllBooks().subscribe(
