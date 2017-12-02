@@ -20,6 +20,7 @@ import { RegistrationComponent } from './pages/registration/registration.compone
 import { BookGridViewComponent } from './pages/books/book-grid-view/book-grid-view.component';
 import { BookItemViewComponent } from './pages/books/book-item-view/book-item-view.component';
 import { LoaderComponent } from './components/loader/loader.component';
+import { AuthorFormComponent } from './pages/authors/author-form/author-form.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { LoaderComponent } from './components/loader/loader.component';
     BookListViewComponent,
     BookGridViewComponent,
     BookItemViewComponent,
-    LoaderComponent
+    LoaderComponent,
+    AuthorFormComponent
   ],
   imports: [
     BrowserModule,

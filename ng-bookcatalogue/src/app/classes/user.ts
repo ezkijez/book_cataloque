@@ -1,10 +1,10 @@
 import { Role } from './role';
 
 export class User {
-  private username: string;
-  private password: string;
-  private email: string;
-  private role: string;
+  username: string;
+  password: string;
+  email: string;
+  role: string;
 
   constructor(username = '', password = '', email = '', role = Role.GUEST) {
     this.username = username;
@@ -12,5 +12,4 @@ export class User {
     this.email = email;
     this.role = role;
   }
-
 }

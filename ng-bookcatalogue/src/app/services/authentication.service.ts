@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map, tap } from 'rxjs/operators';
 import { User } from '../classes/user';
 import { environment } from '../../environments/environment';
+import { Role } from '../classes/role';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -10,11 +11,19 @@ const httpOptions = {
 
 @Injectable()
 export class AuthenticationService {
-  private user: User;
-  private loggedIn = false;
+  private _user: User;
+  private _loggedIn = false;
 
   constructor(private http: HttpClient) {
-    this.user = new User();
+    this._user = new User();
+  }
+
+  isUser() {
+    return this.loggedIn && (this.user.role === Role.USER || this.user.role === Role.ADMIN);
+  }
+
+  isAdmin() {
+    return this.loggedIn && this.user.role === Role.ADMIN;
   }
 
   register(user: User) {
@@ -41,4 +50,19 @@ export class AuthenticationService {
       );
   }
 
+  get user(): User {
+    return this._user;
+  }
+
+  set user(value: User) {
+    this._user = value;
+  }
+
+  get loggedIn(): boolean {
+    return this._loggedIn;
+  }
+
+  set loggedIn(value: boolean) {
+    this._loggedIn = value;
+  }
 }

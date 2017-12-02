@@ -6,6 +6,7 @@ import { AuthorListViewComponent } from '../../pages/authors/author-list-view/au
 import { RegistrationComponent } from '../../pages/registration/registration.component';
 import { BookGridViewComponent } from '../../pages/books/book-grid-view/book-grid-view.component';
 import { BookItemViewComponent } from '../../pages/books/book-item-view/book-item-view.component';
+import { AuthorFormComponent } from '../../pages/authors/author-form/author-form.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,12 @@ const routes: Routes = [
   },
   {
     path: 'authors', component: AuthorListViewComponent
+  },
+  {
+    path: 'author/new', component: AuthorFormComponent
+  },
+  {
+    path: 'author/edit/:id', component: AuthorFormComponent
   },
   {
     path: 'book/:id', component: BookItemViewComponent

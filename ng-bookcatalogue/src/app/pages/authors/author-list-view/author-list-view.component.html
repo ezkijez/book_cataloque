@@ -29,7 +29,7 @@
             </p>
           </div>
           <p class="subtitle is-6">Haven't found your favourite author?</p>
-          <p class="title is-4">Add new!</p>
+          <a routerLink="/author/new" class="title is-4">Add new!</a>
         </div>
 
         <div class="tile is-child box notification is-warning">
@@ -83,7 +83,10 @@
       </div>
       <div class="tile is-parent is-4 is-vertical">
         <div class="tile is-child box notification is-warning">
-            <app-author-item [author]="currentAuthor"></app-author-item>
+          <app-author-item [author]="currentAuthor"></app-author-item>
+          <div *ngIf="currentAuthor && authenticationService.isAdmin()">
+            <a routerLink="/author/edit/{{currentAuthor.id}}">Edit</a>
+          </div>
         </div>
       </div>
     </div>

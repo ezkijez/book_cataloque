@@ -11,6 +11,10 @@ export const environment = {
     register: '/auth/register',
     logout: '/auth/logout',
     getAuthors: '/author/authors',
+    getAuthorById: '/author/',
+    addAuthor: '/author/addAuthor',
+    updateAuthor: '/author/updateAuthor',
+    deleteAuthor: '/author/deleteAuthor/',
     getBooks: '/book/books',
     getBookById: '/book/',
   }

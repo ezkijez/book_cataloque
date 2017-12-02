@@ -3,6 +3,7 @@ import { Author } from '../../../classes/author';
 import { AuthorService } from '../../../services/author.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import 'rxjs/add/operator/switchMap';
+import { AuthenticationService } from '../../../services/authentication.service';
 
 @Component({
   selector: 'app-author-list-view',
@@ -23,6 +24,7 @@ export class AuthorListViewComponent implements OnInit {
   private _pageNumbers: number[];
 
   constructor(private authorService: AuthorService,
+              private _authenticationService: AuthenticationService,
               private router: Router,
               private route: ActivatedRoute) { }
 
@@ -155,5 +157,10 @@ export class AuthorListViewComponent implements OnInit {
 
   set page(value: number) {
     this._page = value;
+  }
+
+
+  get authenticationService(): AuthenticationService {
+    return this._authenticationService;
   }
 }

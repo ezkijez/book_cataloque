@@ -13,4 +13,16 @@ export class AuthorService {
     return this.http.get(environment.api + environment.routes.getAuthors);
   }
 
+  getAuthorById(id: number): Observable<Author> {
+    return this.http.get(`${environment.api}${environment.routes.getAuthorById}${id}`);
+  }
+
+  updateAuthor(author: Author): Observable<Author> {
+    return this.http.put(environment.api + environment.routes.updateAuthor, author);
+  }
+
+  addAuthor(author: Author): Observable<Author> {
+    return this.http.post(environment.api + environment.routes.addAuthor, author);
+  }
+
 }
