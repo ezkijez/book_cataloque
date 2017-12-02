@@ -15,6 +15,7 @@ export class RegistrationComponent implements OnInit {
     password: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email])
   });
+  error: boolean;
 
   constructor(private authService: AuthenticationService, private router: Router) { }
 
@@ -25,7 +26,7 @@ export class RegistrationComponent implements OnInit {
     this.authService.register(new User(this.username.value, this.password.value, this.email.value))
       .subscribe(
         () => this.router.navigate(['/login']),
-        err => console.log(err)
+        () => this.error = true
       );
   }
 

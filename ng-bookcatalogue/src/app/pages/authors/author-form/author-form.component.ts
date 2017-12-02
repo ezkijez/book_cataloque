@@ -13,6 +13,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class AuthorFormComponent implements OnInit {
   private _author: Author = new Author();
   private edit: boolean;
+  error: boolean;
 
   authorForm: FormGroup = new FormGroup({
     name: new FormControl('', [Validators.required]),
@@ -42,12 +43,12 @@ export class AuthorFormComponent implements OnInit {
     if (this.edit) {
       this.authorService.updateAuthor(this.author).subscribe(
         () => this.router.navigate(['/authors']),
-        err => console.log(err)
+        () => this.error = true
       );
     } else {
       this.authorService.addAuthor(author).subscribe(
         () => this.router.navigate(['/authors']),
-        err => console.log(err)
+        () => this.error = true
       );
     }
   }

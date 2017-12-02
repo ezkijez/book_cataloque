@@ -3,6 +3,10 @@
     <div class="column is-6 is-offset-3" id="login-page">
       <h3 class="title has-text-centered">Login</h3>
 
+      <div *ngIf="error" class="notification is-danger">
+        Unsuccessful login attempt. Please try again.
+      </div>
+
       <form [formGroup]="loginForm" novalidate>
           <div class="field is-horizontal">
             <div class="field-label is-normal">

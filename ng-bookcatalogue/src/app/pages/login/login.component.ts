@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
     username: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required])
   });
+  error: boolean;
 
   constructor(private authService: AuthenticationService, private router: Router) { }
 
@@ -23,8 +24,8 @@ export class LoginComponent implements OnInit {
   submit() {
     this.authService.login(new User(this.username.value, this.password.value))
       .subscribe(
-        res => this.router.navigate(['']),
-        err => console.log(err)
+        () => this.router.navigate(['']),
+        () => this.error = true
       );
   }
 

@@ -2,6 +2,10 @@
   <div class="columns">
     <div class="column is-6 is-offset-3">
 
+      <div *ngIf="error" class="notification is-danger">
+        Unsuccessful attempt. Please try again.
+      </div>
+
       <form [formGroup]="authorForm">
 
         <div class="field is-horizontal">
