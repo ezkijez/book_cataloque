@@ -8,9 +8,13 @@ import { environment } from '../../environments/environment';
 export class BookService {
 
   constructor(private http: HttpClient) { }
-  
- getAllBooks(): Observable<Object> {
+
+  getAllBooks(): Observable<Object> {
     return this.http.get(environment.api + environment.routes.getBooks);
+  }
+
+  getBookById(id: number): Observable<Book> {
+    return this.http.get(`${environment.api}${environment.routes.getBookById}${id}`);
   }
 
 }

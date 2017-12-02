@@ -1,0 +1,33 @@
+<section class="hero is-dark">
+  <div class="hero-body">
+    <div class="container">
+
+      <div *ngIf="book">
+        <div class="is-pulled-left">
+          <h1 class="title">
+            {{ book.title }}
+          </h1>
+          <h2 class="subtitle">
+            by {{ authorNames }}
+          </h2>
+        </div>
+
+        <div class="is-pulled-right has-text-right">
+          <div class="tags has-addons">
+            <span class="tag is-large">Genre</span>
+            <span class="tag is-large is-primary">{{ book.genre }}</span>
+          </div>
+          <div class="tags has-addons">
+            <span class="tag is-large">Published</span>
+            <span class="tag is-large is-primary">{{ book.publicationDate.year }}</span>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="!book">
+        <app-loader></app-loader>
+      </div>
+
+    </div>
+  </div>
+</section>

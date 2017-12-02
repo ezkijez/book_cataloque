@@ -12,5 +12,6 @@ export const environment = {
     logout: '/auth/logout',
     getAuthors: '/author/authors',
     getBooks: '/book/books',
+    getBookById: '/book/',
   }
 };

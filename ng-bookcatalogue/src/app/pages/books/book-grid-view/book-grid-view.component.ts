@@ -10,9 +10,7 @@ import { BookService } from '../../../services/book.service';
 export class BookGridViewComponent implements OnInit {
 
   private books: Book[];
-  private filteredBooks: Book[];
-  private rowSize = 3;
-  private bookGrid = [];
+  private _filteredBooks: Book[];
   searchTerm: string;
 
   constructor(private bookService: BookService) { }
@@ -22,7 +20,6 @@ export class BookGridViewComponent implements OnInit {
       (books) => {
         this.books = <Book[]> books;
         this.filteredBooks = this.books;
-        this.refreshGrid();
       });
   }
 
@@ -32,13 +29,16 @@ export class BookGridViewComponent implements OnInit {
     );
   }
 
-  refreshGrid() {
-    this.bookGrid = [];
-    const rows = Math.ceil(this.filteredBooks.length / this.rowSize);
-    for (let i = 0; i < rows; ++i) {
-      this.bookGrid.push(this.filteredBooks.slice(i * this.rowSize, (i + 1) * this.rowSize));
-    }
-    console.log(this.bookGrid);
+  resetSearch() {
+    this.searchTerm = '';
+    this.searchBook(this.searchTerm);
   }
 
+  get filteredBooks(): Book[] {
+    return this._filteredBooks;
+  }
+
+  set filteredBooks(value: Book[]) {
+    this._filteredBooks = value;
+  }
 }

@@ -64,7 +64,7 @@ export class AuthorListViewComponent implements OnInit {
 
   checkRandomAuthor() {
     const randomId = Math.floor(Math.random() * this.authors.length);
-    this.currentAuthor = this.authors[randomId];
+    this.selectAuthor(this.authors[randomId]);
   }
 
   nextPage() {

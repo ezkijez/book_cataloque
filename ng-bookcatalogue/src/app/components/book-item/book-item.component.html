@@ -1,7 +1,8 @@
-<p *ngIf="!book">Dynamic book info comes here.</p>
-<div *ngIf="book">
-  <p class="title">{{ book.title }}</p>
-  <p>{{ book.genre }}</p>
-  <p>{{ book.pdate }}</p>
-
-</div>
+<a routerLink="/book/{{book.id}}">
+  <div class="notification is-primary book-item">
+    <h4 class="title is-4 no-text-overflow">
+      {{ book.title }}
+    </h4>
+    <h6 class="subtitle is-6 no-text-overflow">by {{ book.authors[0].name }}</h6>
+  </div>
+</a>

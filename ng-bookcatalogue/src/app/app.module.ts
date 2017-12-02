@@ -18,6 +18,8 @@ import { BookListViewComponent } from './pages/books/book-list-view/book-list-vi
 import { BookService } from './services/book.service';
 import { RegistrationComponent } from './pages/registration/registration.component';
 import { BookGridViewComponent } from './pages/books/book-grid-view/book-grid-view.component';
+import { BookItemViewComponent } from './pages/books/book-item-view/book-item-view.component';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { BookGridViewComponent } from './pages/books/book-grid-view/book-grid-vi
     AuthorItemComponent,
     BookItemComponent,
     BookListViewComponent,
-    BookGridViewComponent
+    BookGridViewComponent,
+    BookItemViewComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
