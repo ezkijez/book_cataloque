@@ -19,6 +19,7 @@ export const environment = {
     getBookById: '/book/',
     deleteBook: '/book/deleteBook/',
     getReviewsOfBook: '/review/',
-    addReview: '/review/addReview'
+    addReview: '/review/addReview',
+    deleteReview: `/review/deleteReview/`
   }
 };
