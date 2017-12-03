@@ -17,4 +17,6 @@ export class BookService {
     return this.http.get(`${environment.api}${environment.routes.getBookById}${id}`) as Observable<Book>;
   }
 
+  deleteBook(id: number): Observable<Book> {
+    return this.http.get(`${environment.api}${environment.routers.deleteBook}${id}`) as Observable<book>;
 }
