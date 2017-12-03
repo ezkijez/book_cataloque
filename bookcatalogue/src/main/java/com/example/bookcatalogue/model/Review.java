@@ -1,8 +1,10 @@
 package com.example.bookcatalogue.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -30,13 +32,14 @@ public class Review {
     @JoinColumn(name = "book")
     private Book book;
 
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "text")
     private String review;
 
     @Column(nullable = false)
     private int rate;
 
     @Column(nullable = false)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate date;
 
     @Override

@@ -16,7 +16,6 @@ public class ReviewController {
     @Autowired
     private ReviewService reviewService;
 
-
     @GetMapping("/{bookId}")
     public List<Review> getReviewsOfBook(@PathVariable Long bookId) {
         return reviewService.getReviewsOfBook(bookId);

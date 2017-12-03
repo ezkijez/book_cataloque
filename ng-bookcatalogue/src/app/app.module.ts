@@ -22,6 +22,8 @@ import { BookItemViewComponent } from './pages/books/book-item-view/book-item-vi
 import { LoaderComponent } from './components/loader/loader.component';
 import { AuthorFormComponent } from './pages/authors/author-form/author-form.component';
 import { ReviewItemComponent } from './components/review-item/review-item.component';
+import { ReviewListComponent } from './components/review-list/review-list.component';
+import { ReviewService } from './services/review.service';
 
 
 @NgModule({
@@ -40,7 +42,7 @@ import { ReviewItemComponent } from './components/review-item/review-item.compon
     LoaderComponent,
     AuthorFormComponent,
     ReviewItemComponent,
-
+    ReviewListComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +52,7 @@ import { ReviewItemComponent } from './components/review-item/review-item.compon
     FormsModule,
     BrowserAnimationsModule
   ],
-  providers: [AuthenticationService, AuthorService, BookService],
+  providers: [AuthenticationService, AuthorService, BookService, ReviewService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

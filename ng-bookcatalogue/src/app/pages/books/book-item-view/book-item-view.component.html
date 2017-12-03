@@ -17,9 +17,9 @@
             <span class="tag is-large">Genre</span>
             <span class="tag is-large is-primary">{{ book.genre }}</span>
           </div>
-          <div class="tags has-addons">
+          <div class="tags has-addons is-pulled-right">
             <span class="tag is-large">Published</span>
-            <span class="tag is-large is-primary">{{ book.publicationDate.year }}</span>
+            <span class="tag is-large is-primary">{{ book.publicationDate }}</span>
           </div>
         </div>
       </div>
@@ -28,6 +28,54 @@
         <app-loader></app-loader>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<section *ngIf="book" class="section">
+  <div class="columns">
+    <div class="column is-6 is-offset-3">
+      <form *ngIf="authService.isUser() && !done" [formGroup]="reviewForm">
+        <div class="field">
+          <label for="rating" class="label">Rating</label>
+          <div class="control">
+            <div class="select">
+              <select name="rating" id="rating" formControlName="rating">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <p class="control">
+            <textarea class="textarea" placeholder="Add a review..." formControlName="review" [class.is-danger]="review.hasError('required') && review.touched"></textarea>
+          </p>
+          <p *ngIf="review.hasError('minLength') && review.touched" class="help is-danger">Review must be at least 30 characters long.</p>
+        </div>
+
+        <div class="field">
+          <p class="control">
+            <button class="button" (click)="submitReview()" [disabled]="!reviewForm.valid">Post review</button>
+          </p>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  <div class="columns">
+    <div class="column is-8 is-offset-2">
+      <app-review-list [bookId]="book.id" [refresh]="refreshReviews"></app-review-list>
     </div>
   </div>
 </section>

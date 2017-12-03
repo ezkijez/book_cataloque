@@ -17,7 +17,7 @@ export const environment = {
     deleteAuthor: '/author/deleteAuthor/',
     getBooks: '/book/books',
     getBookById: '/book/',
-    getReviews: '/review/reviews',
-    getReviewById: '/review/'
+    getReviewsOfBook: '/review/',
+    addReview: '/review/addReview'
   }
 };

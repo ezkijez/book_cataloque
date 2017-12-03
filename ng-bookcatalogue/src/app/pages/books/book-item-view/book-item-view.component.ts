@@ -3,6 +3,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { BookService } from '../../../services/book.service';
 import { Book } from '../../../classes/book';
 import { Author } from '../../../classes/author';
+import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ReviewService } from '../../../services/review.service';
+import { Review } from '../../../classes/review';
+import { AuthenticationService } from '../../../services/authentication.service';
 
 @Component({
   selector: 'app-book-item-view',
@@ -13,10 +17,19 @@ export class BookItemViewComponent implements OnInit {
   private _book: Book;
   private _authorNames: string;
 
+  reviewForm: FormGroup = new FormGroup({
+    rating: new FormControl('1'),
+    review: new FormControl('', [Validators.required, Validators.minLength(40)])
+  });
+  refreshReviews = 0;
+  done = false;
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private bookService: BookService
+    private bookService: BookService,
+    private reviewService: ReviewService,
+    private _authService: AuthenticationService
   ) { }
 
   ngOnInit() {
@@ -33,6 +46,34 @@ export class BookItemViewComponent implements OnInit {
     for (let i = 1; i < authorArray.length; ++i) {
       this.authorNames += `, ${authorArray[i].name}`;
     }
+  }
+
+  submitReview() {
+    this.reviewService.addReview(new Review(
+      this.authService.user,
+      new Book(this.book.id),
+      this.review.value,
+      this.rating.value)
+    ).subscribe(
+      () => {
+        this.done = true;
+        this.reviewForm.reset();
+        this.refreshReviews++;
+      },
+          err => console.log(err)
+      );
+  }
+
+  get authService(): AuthenticationService {
+    return this._authService;
+  }
+
+  get rating(): AbstractControl {
+    return this.reviewForm.get('rating');
+  }
+
+  get review(): AbstractControl {
+    return this.reviewForm.get('review');
   }
 
   get book(): Book {

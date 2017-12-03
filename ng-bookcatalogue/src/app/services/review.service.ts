@@ -8,9 +8,13 @@ import { environment } from '../../environments/environment';
 export class ReviewService {
 
   constructor(private http: HttpClient) { }
-  
- getAllReviews(): Observable<Object> {
-    return this.http.get(environment.api + environment.routes.getBooks);
+
+  getReviewsOfBook(bookId: number): Observable<Review[]> {
+    return this.http.get(`${environment.api}${environment.routes.getReviewsOfBook}${bookId}`);
+  }
+
+  addReview(review: Review): Observable<Review> {
+    return this.http.post(environment.api + environment.routes.addReview, review);
   }
 
 }
