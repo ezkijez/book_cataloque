@@ -18,6 +18,6 @@ export class ReviewService {
   }
   
   deleteReview(id: number): Observable<any> {
-    return this.http.delte(environment.api + environment.routers.deleteReview + id);
+    return this.http.delete(environment.api + environment.routes.deleteReview + id);
 
 }
