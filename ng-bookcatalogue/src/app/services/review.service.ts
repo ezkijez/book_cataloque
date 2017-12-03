@@ -10,11 +10,11 @@ export class ReviewService {
   constructor(private http: HttpClient) { }
 
   getReviewsOfBook(bookId: number): Observable<Review[]> {
-    return this.http.get(`${environment.api}${environment.routes.getReviewsOfBook}${bookId}`);
+    return this.http.get(`${environment.api}${environment.routes.getReviewsOfBook}${bookId}`) as Observable<Review[]>;
   }
 
   addReview(review: Review): Observable<Review> {
-    return this.http.post(environment.api + environment.routes.addReview, review);
+    return this.http.post(environment.api + environment.routes.addReview, review) as Observable<Review>;
   }
 
 }
