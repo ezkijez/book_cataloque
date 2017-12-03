@@ -18,5 +18,6 @@ export class BookService {
   }
 
   deleteBook(id: number): Observable<any> {
-    return this.http.delete(environment.api + environment.routes.deleteBook +id);
+    return this.http.delete(environment.api + environment.routes.deleteBook + id);
+  }
 }
