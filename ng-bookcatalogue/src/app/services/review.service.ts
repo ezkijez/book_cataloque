@@ -16,5 +16,8 @@ export class ReviewService {
   addReview(review: Review): Observable<Review> {
     return this.http.post(environment.api + environment.routes.addReview, review) as Observable<Review>;
   }
+  
+  deleteReview(id: number): Observable<any> {
+    return this.http.delte(environment.api + id);
 
 }
