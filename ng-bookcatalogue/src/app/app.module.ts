@@ -21,6 +21,8 @@ import { BookGridViewComponent } from './pages/books/book-grid-view/book-grid-vi
 import { BookItemViewComponent } from './pages/books/book-item-view/book-item-view.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import { AuthorFormComponent } from './pages/authors/author-form/author-form.component';
+import { ReviewItemComponent } from './components/review-item/review-item.component';
+
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { AuthorFormComponent } from './pages/authors/author-form/author-form.com
     BookGridViewComponent,
     BookItemViewComponent,
     LoaderComponent,
-    AuthorFormComponent
+    AuthorFormComponent,
+    ReviewItemComponent,
+
   ],
   imports: [
     BrowserModule,
