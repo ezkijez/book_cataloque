@@ -25,4 +25,6 @@ export class AuthorService {
     return this.http.post(environment.api + environment.routes.addAuthor, author) as Observable<Author>;
   }
 
+  deleteAuthor(id: number): Observable<any> {
+    return this.http.delete(environment.api + environment.routes.deleteAuthor + id);
 }
