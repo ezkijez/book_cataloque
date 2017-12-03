@@ -17,6 +17,8 @@ export const environment = {
     deleteAuthor: '/author/deleteAuthor/',
     getBooks: '/book/books',
     getBookById: '/book/',
+    addBook: '/book/addBook',
+    updateBook: '/book/updateBook',
     deleteBook: '/book/deleteBook/',
     getReviewsOfBook: '/review/',
     addReview: '/review/addReview',

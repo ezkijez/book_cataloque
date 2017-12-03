@@ -17,6 +17,14 @@ export class BookService {
     return this.http.get(`${environment.api}${environment.routes.getBookById}${id}`) as Observable<Book>;
   }
 
+  addBook(book: Book): Observable<Book> {
+    return this.http.post(environment.api + environment.routes.addBook, book);
+  }
+
+  updateBook(book: Book): Observable<Book> {
+    return this.http.put(environment.api + environment.routes.updateBook, book);
+  }
+
   deleteBook(id: number): Observable<any> {
     return this.http.delete(environment.api + environment.routes.deleteBook + id);
   }

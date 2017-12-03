@@ -7,6 +7,7 @@ import { RegistrationComponent } from '../../pages/registration/registration.com
 import { BookGridViewComponent } from '../../pages/books/book-grid-view/book-grid-view.component';
 import { BookItemViewComponent } from '../../pages/books/book-item-view/book-item-view.component';
 import { AuthorFormComponent } from '../../pages/authors/author-form/author-form.component';
+import { BookFormComponent } from '../../pages/books/book-form/book-form.component';
 
 const routes: Routes = [
   {
@@ -32,6 +33,12 @@ const routes: Routes = [
   },
   {
     path: 'books', component: BookGridViewComponent
+  },
+  {
+    path: 'books/edit/:id', component: BookFormComponent
+  },
+  {
+    path: 'books/new', component: BookFormComponent
   }
 ];
 

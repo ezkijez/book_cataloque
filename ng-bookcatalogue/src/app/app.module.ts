@@ -24,6 +24,7 @@ import { AuthorFormComponent } from './pages/authors/author-form/author-form.com
 import { ReviewItemComponent } from './components/review-item/review-item.component';
 import { ReviewListComponent } from './components/review-list/review-list.component';
 import { ReviewService } from './services/review.service';
+import { BookFormComponent } from './pages/books/book-form/book-form.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { ReviewService } from './services/review.service';
     LoaderComponent,
     AuthorFormComponent,
     ReviewItemComponent,
-    ReviewListComponent
+    ReviewListComponent,
+    BookFormComponent
   ],
   imports: [
     BrowserModule,

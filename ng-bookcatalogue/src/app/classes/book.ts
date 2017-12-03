@@ -7,7 +7,7 @@ export class Book {
   publicationDate: string;
   authors: Author[];
 
-  public constructor(id: number,
+  public constructor(id?: number,
                      title?: string,
                      genre?: string,
                      pdate?: string,
