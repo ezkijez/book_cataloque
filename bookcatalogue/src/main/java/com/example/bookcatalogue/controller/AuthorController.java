@@ -5,6 +5,8 @@ import com.example.bookcatalogue.model.Author;
 import com.example.bookcatalogue.model.User;
 import com.example.bookcatalogue.service.AuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -45,7 +47,8 @@ public class AuthorController {
 
     @Role({User.Role.ADMIN})
     @DeleteMapping("/deleteAuthor/{id}")
-    public void deleteAuthor(@PathVariable Long id) {
+    public ResponseEntity deleteAuthor(@PathVariable Long id) {
         authorService.deleteAuthor(id);
+        return ResponseEntity.ok(authorService.getAllAuthors());
     }
 }

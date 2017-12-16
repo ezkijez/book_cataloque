@@ -37,12 +37,12 @@ public class Book {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy")
     private LocalDate publicationDate;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "book_author")
     private Set<Author> authors = new HashSet<>();
 
     @JsonIgnore
-    @OneToMany(mappedBy = "book")
+    @OneToMany(mappedBy = "book", cascade = CascadeType.ALL)
     private Set<Review> reviews = new HashSet<>();
 
     @Override

@@ -85,7 +85,8 @@
         <div class="tile is-child box notification is-warning">
           <app-author-item [author]="currentAuthor"></app-author-item>
           <div *ngIf="currentAuthor && authenticationService.isAdmin()">
-            <a routerLink="/author/edit/{{currentAuthor.id}}">Edit</a>
+            <a class="button is-small is-warning is-inverted" routerLink="/author/edit/{{currentAuthor.id}}">Edit</a>
+            <button (click)="removeAuthor(currentAuthor.id)" class="button is-small is-danger">Delete</button>
           </div>
         </div>
       </div>

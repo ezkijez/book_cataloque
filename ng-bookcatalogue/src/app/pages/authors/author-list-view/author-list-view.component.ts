@@ -40,6 +40,19 @@ export class AuthorListViewComponent implements OnInit {
       });
   }
 
+  removeAuthor(authorId: number) {
+    this.authorService.deleteAuthor(authorId).subscribe(
+      () => {
+        this.router.navigate(['/authors']);
+        this.currentAuthor = undefined;
+        this.authors = this.authors.filter(author => author.id !== authorId);
+        this.filteredAuthors = this.filteredAuthors.filter(author => author.id !== authorId);
+        this.refresh();
+      },
+      err => console.log(err)
+    );
+  }
+
   setAuthorFromQuery() {
     const id = +this.route.snapshot.queryParams['id'];
     if (id) {
