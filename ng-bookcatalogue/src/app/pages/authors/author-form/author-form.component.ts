@@ -27,9 +27,6 @@ export class AuthorFormComponent implements OnInit {
               private route: ActivatedRoute) { }
 
   ngOnInit() {
-    if (!this.authenticationService.isUser()) {
-      this.router.navigate(['/login']);
-    }
     const id = +this.route.snapshot.params['id'];
     if (id && this.authenticationService.isAdmin()) {
       this.edit = true;

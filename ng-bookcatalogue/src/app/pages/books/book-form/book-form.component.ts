@@ -32,9 +32,6 @@ export class BookFormComponent implements OnInit {
               private route: ActivatedRoute) { }
 
   ngOnInit() {
-    if (!this.authService.isUser()) {
-      this.router.navigate(['/login']);
-    }
     this.authorService.getAllAuthors().subscribe(
       authors => this._authors = authors as Author[]
     );

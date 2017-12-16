@@ -25,6 +25,7 @@ import { ReviewItemComponent } from './components/review-item/review-item.compon
 import { ReviewListComponent } from './components/review-list/review-list.component';
 import { ReviewService } from './services/review.service';
 import { BookFormComponent } from './pages/books/book-form/book-form.component';
+import { RouteGuardService } from './services/route-guard.service';
 
 
 @NgModule({
@@ -54,7 +55,7 @@ import { BookFormComponent } from './pages/books/book-form/book-form.component';
     FormsModule,
     BrowserAnimationsModule
   ],
-  providers: [AuthenticationService, AuthorService, BookService, ReviewService],
+  providers: [AuthenticationService, RouteGuardService, AuthorService, BookService, ReviewService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

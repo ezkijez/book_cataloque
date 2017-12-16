@@ -26,9 +26,8 @@
       </a>
 
       <a *ngIf="authService.loggedIn" class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link" routerLink="/profile" >{{ authService.user.username }}</a>
+        <a class="navbar-link">{{ authService.user.username }}</a>
         <div class="navbar-dropdown">
-          <a routerLink="/profile" class="navbar-item">Profile</a>
           <a (click)="logout()" class="navbar-item">Log out</a>
         </div>
       </a>
