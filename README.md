@@ -87,3 +87,24 @@ Az alkalmazás adminisztrátorai rendelkeznek értelemszerűen a legtöbb joggal
 	- /isLoggedIn: felhasználó adatai ha be van jelentkezve
 	- /login: bejelentkező oldal
 	- /register: regisztrációs oldal
+
+## Felhasználói dokumentáció
+
+### Ajánlott követelmények 
+A program bármilyen operációs rendszeren futtatható.
+
+### Telepítés 
+#### Telepítés előtt pár szükséges lépés
+  - npm amit itt lehet letölteni : [www.npmjs.com/get-npm](https://www.npmjs.com/get-npm)
+  - Internet elérés
+
+#### Telepítés
+1. Látogasson el a 	[github.com/ezkijez/book_cataloque](https://github.com/ezkijez/book_cataloque) oldalra
+2. Itt kattintson a **"Clone and Download"** gombra, és azon belül kattintson a **"Download as Zip"** gombra.
+3. A letöltött állományt csomagoljuk ki
+4. **npm i** parancsot adjuk ki parancssorban a kicsomagolt állomány mappájában.
+5. **npm start**-al elindíthatjuk a programot (Allapesetben localhost:8080-on fut a program)
+
+### 6.3 Használata
+1. Böngészőben a keresősávba írjuk be alapesetben: localhost:8080)
+2. Regisztrálás és bejelentkezés után használhatjuk a programot.
