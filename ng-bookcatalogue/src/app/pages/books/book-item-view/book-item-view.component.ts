@@ -48,6 +48,15 @@ export class BookItemViewComponent implements OnInit {
     }
   }
 
+  removeBook(bookId: number) {
+    this.bookService.deleteBook(bookId).subscribe(
+      () => {
+        this.router.navigate(['/books']);
+      },
+      err => console.log(err)
+    );
+  }
+
   submitReview() {
     this.reviewService.addReview(new Review(
       this.authService.user,

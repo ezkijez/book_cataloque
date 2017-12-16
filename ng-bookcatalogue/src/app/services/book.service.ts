@@ -25,7 +25,7 @@ export class BookService {
     return this.http.put(environment.api + environment.routes.updateBook, book);
   }
 
-  deleteBook(id: number): Observable<any> {
+  deleteBook(id: number): Observable<Book[]> {
     return this.http.delete(environment.api + environment.routes.deleteBook + id);
   }
 }

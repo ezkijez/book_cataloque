@@ -6,6 +6,7 @@ import com.example.bookcatalogue.model.Book;
 import com.example.bookcatalogue.model.User;
 import com.example.bookcatalogue.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -47,8 +48,9 @@ public class BookController {
 
     @Role({User.Role.ADMIN})
     @DeleteMapping("/deleteBook/{id}")
-    public void deleteBook(@PathVariable Long id) {
+    public ResponseEntity deleteBook(@PathVariable Long id) {
         bookService.deleteBook(id);
+        return ResponseEntity.ok(bookService.getAllBooks());
     }
 
 }
