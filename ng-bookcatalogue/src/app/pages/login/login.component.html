@@ -38,7 +38,7 @@
 
         <div class="field is-grouped is-grouped-centered">
           <div class="control">
-            <button class="button is-primary" (click)="submit()" [disabled]="!loginForm.valid">Login</button>
+            <button class="button is-primary" id="loginButton" (click)="submit()" [disabled]="!loginForm.valid">Login</button>
           </div>
           <div class="control">
             <a class="button is-light" routerLink="/register">Register</a>

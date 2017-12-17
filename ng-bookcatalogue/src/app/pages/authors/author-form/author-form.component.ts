@@ -4,6 +4,7 @@ import { AuthorService } from '../../../services/author.service';
 import { Author } from '../../../classes/author';
 import { AuthenticationService } from '../../../services/authentication.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { getPath } from '../../../../../e2e/getpath';
 
 @Component({
   selector: 'app-author-form',
@@ -34,6 +35,7 @@ export class AuthorFormComponent implements OnInit {
         author => this.author = author
       );
     }
+    // console.log(getPath());
   }
 
   submit(author: Author) {
