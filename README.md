@@ -103,8 +103,8 @@ A program bármilyen operációs rendszeren futtatható.
 2. Itt kattintson a **"Clone and Download"** gombra, és azon belül kattintson a **"Download as Zip"** gombra.
 3. A letöltött állományt csomagoljuk ki
 4. **npm i** parancsot adjuk ki parancssorban a kicsomagolt állomány mappájában.
-5. **npm start**-al elindíthatjuk a programot (Allapesetben localhost:8080-on fut a program)
+5. **npm start**-al elindíthatjuk a programot (Allapesetben localhost:4200-on fut a program)
 
 ### 6.3 Használata
-1. Böngészőben a keresősávba írjuk be alapesetben: localhost:8080)
+1. Böngészőben a keresősávba írjuk be alapesetben: localhost:4200)
 2. Regisztrálás és bejelentkezés után használhatjuk a programot.
